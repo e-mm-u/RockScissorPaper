@@ -9,9 +9,15 @@
 </head>
 <body>
     <div class="btns">
-        <button class="btn" id="rock">👊</button>
-        <button class="btn" id="scissor"> ✌️ </button>
-        <button class="btn" id="paper">🖐</button>
+        <button class="btn tooltip" id="rock">👊
+            <span class="tooltiptext">Rock</span>
+        </button>
+        <button class="btn tooltip" id="scissor"> ✌️ 
+            <span class="tooltiptext">Scissor</span>
+        </button>
+        <button class="btn tooltip" id="paper">🖐
+            <span class="tooltiptext">Paper</span>
+        </button>
     </div>
 
     <div class="score">
@@ -21,18 +27,27 @@
             <h2 class="txt"><span id="your-score">0</span></h2>
             <hr>
         </div>
+
+
+        <div class="modal-outer">
+            <div class="modal-inner txt" id="modal-inner">
+                <h1>Let's start playing!</h1>
+            </div>
+        </div>
+
         <div class="res-col" id="computer">
             <h3 class="txt">Computer</h3>
             <!-- <hr> -->
             <h2 class="txt"><span id="computer-score">0</span></h2>
             <hr>
         </div>
+
+        
     </div>
 
     <div class="reload txt">
         <button id="reload" style="display: none;">RELOAD</button>
     </div>
-
     
     <script src="app.js"></script>
 </body>

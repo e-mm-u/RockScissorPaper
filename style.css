@@ -34,7 +34,7 @@ body{
 
 .score{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     align-items: center;
 }
@@ -72,3 +72,45 @@ hr{
     border: none;
     border-top: 1px dashed black;
 }
+
+.modal-outer{
+    /* background-color: rgba(175, 233, 209, 0.459); */
+    border: 1px dashed black;
+    margin: auto;
+    display: flex;
+    position: sticky;
+    justify-content: center;
+    align-items: center;
+    /* height: 30vh; */
+    height: auto;
+    width: 30vw;
+}
+.modal-inner{
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.tooltip{
+    position: relative;
+    display: inline-block;
+}
+.tooltip .tooltiptext {
+
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+    position: absolute;
+    font-size: 12px;
+    padding: 3px;
+    border-radius: 15px;
+    z-index: 10;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

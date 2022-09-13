@@ -1,15 +1,16 @@
-const buttons = document.querySelectorAll('.btn');
+const buttons = document.querySelectorAll('.btn'); // rock scissor paper
 
-const yourScore = document.getElementById('your-score');
-const computerScore = document.getElementById('computer-score');
+const yourScore = document.getElementById('your-score'); // player's score
+const computerScore = document.getElementById('computer-score'); // computer's score
 
-const you =  document.getElementById('you');
+const you =  document.getElementById('you'); 
 const computer = document.getElementById('computer');
+
+const message = document.getElementById('modal-inner');
 
 let clicks=0;
 const reload = document.getElementById('reload');
 
-let win ;
 
 const options = [
     {
@@ -44,6 +45,7 @@ buttons.forEach(button => {
 
         const your_option = e.target.id;
         const option = options.find(x => x.name === your_option);
+
         const comp_option = generateBtn();
 
         const w = winner(option, your_option, comp_option);
@@ -51,6 +53,7 @@ buttons.forEach(button => {
         addChild('you', your_option, w);
         addChild('computer', comp_option, w);
 
+        showMessage(w);
 
     });
    
@@ -82,7 +85,6 @@ function addChild(who, btn, w){
         }
     }
 
-
 }
 
 function winner(option, your_option, comp_option){
@@ -92,34 +94,42 @@ function winner(option, your_option, comp_option){
 
     if(your_option === comp_option){
         console.log('withdrawn');
-        win = null;
         return 0;
        
     }
     else if(option.name === your_option && option.beats === comp_option){
         console.log('you win');
         yourScore.innerText = your_score + 1;
-        win = true;
         return 1;
     }
     else{
         console.log('you lose');
         computerScore.innerText = comp_score + 1;
-       
-        win = false;
         return 2;
     }
 
 }
-// const showAlert =(win) => {
-//     if(win === true){
-//         alert('Yayyy, You win 💃')
-//     }else if(win === false){
-//         alert('Oops, You lose 🤦‍♀️')
-//     }else{
-//         alert('Withdrawn  💁‍♀️')
-//     }
-// }
+const showMessage = (w) => {
+
+    if(w === 0){
+        message.innerHTML = `
+        <h1 class="txt"> It's withdrawn </h1>
+        <p style="font-size : 48px"> 💁‍♀️</p>
+        `
+    }
+    else if(w === 1){
+        message.innerHTML = `
+        <h1 class="txt"> Yayyy, You win!</h1>
+        <p style="font-size : 48px"> 💃 </p>
+        `
+    }
+    else{
+        message.innerHTML = `
+        <h1 class="txt"> Oops, You lose!</h1>
+        <p style="font-size : 48px"> 🤦‍♀️ </p>
+        `
+    }
+}
 
 reload.addEventListener('click', (e)=>{
     location.reload();
